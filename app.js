@@ -5,3 +5,8 @@ function repeat(str, multiplier){
     }
     return strSum
 }
+
+function removeFromString(str, index, count) {
+    let modifiedStr = str.slice(0, index) + str.slice(index + count);
+    return modifiedStr;
+}
