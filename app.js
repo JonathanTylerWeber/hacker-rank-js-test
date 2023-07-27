@@ -40,3 +40,7 @@ function slice(arr, index, len) {
     }
     return newArray
 }
+
+function keys(obj){
+    return Object.getOwnPropertyNames(obj);
+}
