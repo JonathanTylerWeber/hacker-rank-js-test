@@ -65,4 +65,13 @@ function swapKeyAndValue(obj, swapKey) {
   return newObj;
 }
 
+function multiples(x, n) {
+    let sum = x;
+    let arr = [x];
+    for (let i = 1; i < n; i++){
+        sum += x;
+        arr.push(sum);
+    }
+    return arr
+}
 
