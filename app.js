@@ -21,5 +21,22 @@ function reverse(arr) {
 }
 
 function min(arr) {
+    let lowest = arr[0]
+    for (let i = 1; i < arr.length; i++){
+        if (lowest > arr[i]){
+            lowest = arr[i];
+        }
+    }
+    return lowest
+}
 
+
+// come back to this?
+function slice(arr, index, len) {
+    const newArray = [];
+    const end = Math.min(index + len, arr.length - index)
+    for ( let i = index; i < index + end; i++){
+        newArray.push(arr[i]);
+    }
+    return newArray
 }
