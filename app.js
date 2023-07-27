@@ -52,3 +52,17 @@ function values(obj) {
     }
     return values;
 }
+
+function swapKeyAndValue(obj, swapKey) {
+  const newObj = {};
+  for (const [key, value] of Object.entries(obj)) {
+    if (key === swapKey) {
+      newObj[value] = key;
+    } else {
+      newObj[key] = value;
+    }
+  }
+  return newObj;
+}
+
+
