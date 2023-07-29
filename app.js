@@ -53,13 +53,25 @@ function values(obj) {
     return values;
 }
 
+// function swapKeyAndValue(obj, swapKey) {
+//   const newObj = {};
+//   for (const [key, value] of Object.entries(obj)) {
+//     if (key === swapKey) {
+//       newObj[value] = key;
+//     } else {
+//       newObj[key] = value;
+//     }
+//   }
+//   return newObj;
+// }
+
 function swapKeyAndValue(obj, swapKey) {
   const newObj = {};
-  for (const [key, value] of Object.entries(obj)) {
-    if (key === swapKey) {
-      newObj[value] = key;
+  for (let i in obj) {
+    if (i === swapKey) {
+      newObj[obj[i]] = i;
     } else {
-      newObj[key] = value;
+      newObj[i] = obj[i]
     }
   }
   return newObj;
@@ -75,3 +87,44 @@ function multiples(x, n) {
     return arr
 }
 
+// my function
+// function pluck(arr, key) {
+//     result = [];
+//     for (let i = 0; i < arr.length; i++)
+//     if (key in arr[i]) {
+//         result.push(arr[i][key]);
+//       } else {
+//         result.push(-1);
+//     }
+//     return result;
+// }
+
+// function for hackerrank
+function pluck(obj, value) {
+    let result = [];
+    for (let i = 0; i < obj.length; i++)
+    if (value in obj[i]) {
+        result.push(obj[i][value]);
+      } else {
+        result.push(-1);
+    }
+    return result;
+}
+// pluck([{a:1,b:2}, {a:3,b:4}], 'a')
+
+// x = highest, y = second highest
+function twoHighest(arr) {
+    let x = -Infinity;
+    let y = -Infinity;
+    for (let i = 0; i < arr.length; i++){
+        if (arr[i] > x){
+            y = x
+            x = arr[i];
+        } 
+        if (arr[i] > y && arr[i] < x){
+            y = arr[i];
+        }
+    }
+    return [y, x]
+}
+// twoHighest([1,2,3,4,5,6,7,8,9])
