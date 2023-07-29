@@ -31,15 +31,25 @@ function min(arr) {
 }
 
 
-// come back to this?
+// old version length is number of indexes to move over
+// function slice(arr, index, len) {
+//     const newArray = [];
+//     const end = Math.min(index + len, arr.length - index)
+//     for ( let i = index; i < index + end; i++){
+//         newArray.push(arr[i]);
+//     }
+//     return newArray
+// }
+
 function slice(arr, index, len) {
     const newArray = [];
-    const end = Math.min(index + len, arr.length - index)
-    for ( let i = index; i < index + end; i++){
+    const end = Math.min(len, arr.length)
+    for ( let i = index; i < end; i++){
         newArray.push(arr[i]);
     }
     return newArray
 }
+// slice([1,2,3,4,5,6,7,8,9])
 
 function keys(obj){
     return Object.getOwnPropertyNames(obj);
@@ -166,3 +176,26 @@ function minMaxKeyInObject(obj) {
 }
 // minMaxKeyInObject({1:'a', 2:'b', 3:'c',4:'d'})
  
+function stringFromObject(obj) {
+    let str = '';
+    let keys = Object.keys(obj);
+    keys.forEach((key, index) => {
+      str += `${key} = ${obj[key]}`;
+      if (index < keys.length - 1) {
+        str += ', ';
+      }
+    });
+    return str;
+  } 
+// stringFromObject({1:'a', 2:'b', 3:'c',4:'d'})
+
+function countNumbers(arr) {
+    let numCount = 0;
+    for (let i = 0; i < arr.length; i++){
+        if (isNaN(Number(arr[i])) === false){
+            numCount += 1;
+        }
+    }
+    return numCount
+}
+// countNumbers([1,2,3,'apple'])
