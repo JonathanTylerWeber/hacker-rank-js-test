@@ -149,4 +149,20 @@ function twoHighest(arr) {
     return [highest[1], highest[0]];
 }
 
+function minMaxKeyInObject(obj) {
+    let min = Infinity;
+    let max = -Infinity;
+    let arr = [min, max];
+    for (let i in obj){
+        i = Number(i);
+        if (i < min){
+            min = i;
+        }
+        if (i > max){
+            max = i;
+        }
+    }
+    return [min, max];
+}
+// minMaxKeyInObject({1:'a', 2:'b', 3:'c',4:'d'})
  
