@@ -113,18 +113,40 @@ function pluck(obj, value) {
 // pluck([{a:1,b:2}, {a:3,b:4}], 'a')
 
 // x = highest, y = second highest
+// function twoHighest(arr) {
+//     let x = -Infinity;
+//     let y = -Infinity;
+//     for (let i = 0; i < arr.length; i++){
+//         if (arr[i] > x){
+//             y = x
+//             x = arr[i];
+//         } 
+//         if (arr[i] > y && arr[i] < x){
+//             y = arr[i];
+//         }
+//     }
+//     return [y, x]
+// }
+// twoHighest([1,2,3,4,5,6,7,8,9])
+
 function twoHighest(arr) {
-    let x = -Infinity;
-    let y = -Infinity;
-    for (let i = 0; i < arr.length; i++){
-        if (arr[i] > x){
-            y = x
-            x = arr[i];
+    if (arr.length < 2) {
+        return arr;
+    }
+    let highest = [Math.min(...arr), Math.min(...arr)];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > highest[0]) {
+            highest[1] = highest[0];
+            highest[0] = arr[i];
         } 
-        if (arr[i] > y && arr[i] < x){
-            y = arr[i];
+        else if (arr[i] >= highest[1] && arr[i] < highest[0]) {
+            highest[1] = arr[i];
+        } 
+        else if (arr[i] === highest[0]) {
+            highest[1] = highest[0];
         }
     }
-    return [y, x]
+    return [highest[1], highest[0]];
 }
-// twoHighest([1,2,3,4,5,6,7,8,9])
+
+ 
